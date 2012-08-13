@@ -3,5 +3,12 @@
 # https://devcenter.heroku.com/articles/quickstart
 # http://docs.pylonsproject.org/projects/pyramid_cookbook/en/latest/deployment/heroku.html
 
+# depdendencies
 sudo apt-get install ruby1.9.3
 gem install heroku foreman
+
+# deploy
+git push heroku HEAD:master
+heroku ps:scale web=1
+heroku ps
+heroku logs
