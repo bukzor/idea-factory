@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2.7
 import os
 import sys
 
@@ -16,7 +16,7 @@ def main():
     app = config.make_wsgi_app()
     port = int(os.environ.get("PORT", "8082"))
     server = make_server('0.0.0.0', port, app)
-    print('Listening on port %i' % port, file=sys.stderr)
+    print >>sys.stderr, 'Listening on port %i' % port
     sys.stderr.flush()
     server.serve_forever()
 

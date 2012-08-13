@@ -10,5 +10,6 @@ TOP=$(dirname $(dirname $(readlink -f "$0")))
 
 #TODO: only do these if the symlink isn't already there.
 #TODO: install a fixed pydoc
+#TODO: symlink a pythonX and pythonX.X
 ln -sf "$TOP"/lib/venv/postactivate "$VIRTUAL_ENV"/bin/postactivate 
 echo "You need to \`deactivate\` and re-activate your virtualenv now."
