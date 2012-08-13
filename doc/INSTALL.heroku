@@ -1,0 +1,7 @@
+# Don't forget to bin/setup-dev first.
+#
+# https://devcenter.heroku.com/articles/quickstart
+# http://docs.pylonsproject.org/projects/pyramid_cookbook/en/latest/deployment/heroku.html
+
+sudo apt-get install ruby1.9.3
+gem install heroku foreman

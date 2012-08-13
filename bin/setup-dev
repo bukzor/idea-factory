@@ -1,0 +1,13 @@
+#!/bin/bash
+# Install my virtualenv hooks.
+# TODO: convert to python, install requirements.pip
+if ! [[ -d $VIRTUAL_ENV ]]; then
+    echo "Please activate a virtualenv."
+    exit -1
+fi
+
+TOP=$(dirname $(dirname $(readlink -f "$0")))
+
+#TODO: only do these if the symlink isn't already there.
+ln -sf "$TOP"/lib/venv/postactivate "$VIRTUAL_ENV"/bin/postactivate 
+echo "You need to \`deactivate\` and re-activate your virtualenv now."
