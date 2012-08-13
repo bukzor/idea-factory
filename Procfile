@@ -1,1 +1,1 @@
-config/heroku/Procfile
+web: ./app.py
