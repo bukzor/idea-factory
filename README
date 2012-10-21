@@ -1,0 +1,10 @@
+This is intended to be a blank-ish pyramid project which runs on various platforms:
+
+Heroku -- in-progress [2012-08-12]
+DotCloud
+RedHat OpenShift
+AppEngine (buildout)
+Amazon ec2. ? 
+
+See also:
+    https://docs.google.com/document/d/1XFqs7me4gJJRet_HgKO0HKYXn80x8ms_WP99WkRuL94/edit

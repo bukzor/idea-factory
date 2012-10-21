@@ -1,6 +1,8 @@
 #!/bin/bash
 # Install my virtualenv hooks.
-# TODO: convert to python, install requirements.pip
+# TODO: convert to python
+# TODO: stop early / require -f if already set up.
+# TODO: symlink a pythonX and pythonX.X
 if ! [[ -d $VIRTUAL_ENV ]]; then
     echo "Please activate a virtualenv."
     exit -1
@@ -8,8 +10,13 @@ fi
 
 TOP=$(dirname $(dirname $(readlink -f "$0")))
 
-#TODO: only do these if the symlink isn't already there.
-#TODO: install a fixed pydoc
-#TODO: symlink a pythonX and pythonX.X
+echo "Installing requirements..."
+pip install -r "$TOP"/requirements.txt
+
 ln -sf "$TOP"/lib/venv/postactivate "$VIRTUAL_ENV"/bin/postactivate 
+
+cp $(env -i which \pydoc) "$VIRTUAL_ENV"/bin
+sed -i '1s|.*|#!/usr/bin/env python|' "$VIRTUAL_ENV"/bin/pydoc
+
+echo 'Success!'
 echo "You need to \`deactivate\` and re-activate your virtualenv now."
