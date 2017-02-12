@@ -1,2 +1,2 @@
 dev:
-	docker build -f dockerfiles/build.dkr .
+	./docker/build.sh

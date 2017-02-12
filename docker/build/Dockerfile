@@ -17,9 +17,9 @@ RUN wget -O- https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 && true
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    nodejs \
     yarn \
 && true
 
-RUN echo ok
-
-
+RUN mkdir /code
+WORKDIR /code
