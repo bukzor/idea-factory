@@ -1,0 +1,29 @@
+Simplest Idea
+=============
+Use sqlite.
+
+
+
+Bad Idea
+========
+Keep It Simple, Stupid.
+Pick the simplest possible thing: sqlite
+
+
+let's define our schema as many ways we know how:
+
+models:
+    * json-schema
+    * protobuf
+    * avro
+    * --thrift--
+    * graphml
+    * mySQL
+
+api:
+  * swagger (json-schema)
+  * gRPC (protobuf)
+  * graphml?
+
+
+# vim:set ft=markdown:

@@ -1,0 +1,6 @@
+# our environment in which we build our files
+
+FROM ubuntu:xenial
+RUN echo ok
+
+
