@@ -1,2 +1,2 @@
 dev:
-	./docker/build.sh
+	./docker/dev/run

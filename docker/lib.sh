@@ -1,20 +1,16 @@
-# common code for the docker/*/build scripts
+#!/bin/bash
+# to be sourced by */run scripts
 set -euo pipefail
 
 # constants
-NAME="$(basename "$HERE")"
-TOP="$(dirname "$(dirname "$HERE")")"
+TOP="$(dirname "$(dirname "$CONTEXT")")"
+NAME="$(basename "$CONTEXT")"
 IMAGE=dont.push.me/idea-factory/"$NAME":"$USER"
-
-# functions
-build() {
-    exec docker build \
-        --tag "$IMAGE" \
-        --build-arg UID=$(id -u) \
-        --build-arg GID=$(id -g) \
-        .
-}
 
 # state
 set -x
-cd "$HERE"
+cd "$CONTEXT"
+
+./Dockerfile.sh > Dockerfile
+docker build --tag "$IMAGE" .
+rm Dockerfile

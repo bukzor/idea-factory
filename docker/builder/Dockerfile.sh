@@ -1,3 +1,5 @@
+#!/bin/sh
+cat <<EOF
 # our environment in which we build our files
 
 FROM ubuntu:xenial
@@ -23,3 +25,4 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 
 RUN mkdir /code
 WORKDIR /code
+EOF
