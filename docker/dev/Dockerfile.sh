@@ -11,6 +11,7 @@ RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommen
     man \
     less \
     git \
+    ssh \
 && true
 
 WORKDIR /opt/code
