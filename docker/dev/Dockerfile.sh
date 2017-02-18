@@ -2,7 +2,7 @@
 cat <<EOF
 # our environment in which we build our files
 
-FROM dont.push.me/idea-factory/base:$USER
+FROM dont.push.me/idea-factory/builder:$USER
 
 # the very basics
 RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends \
@@ -13,5 +13,6 @@ RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommen
     git \
 && true
 
-CMD tmux
+WORKDIR /opt/code
+CMD ["tmux", "-2"]
 EOF

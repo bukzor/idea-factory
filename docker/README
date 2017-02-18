@@ -1,0 +1,3 @@
+Currently, with a warmed docker cache, you can run in 2.3 seconds:
+
+    ./docker/dev/run echo ok

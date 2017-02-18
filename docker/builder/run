@@ -1,1 +1,7 @@
-docker run -v $TOP:/code "$IMAGE" yarn add milligram
+#!/bin/bash
+HERE="$(dirname "$(readlink -f "$0")")"
+source "$HERE"/../lib.sh
+
+"$HERE"/../base/run
+docker-build "$HERE"
+docker-run "$IMAGE" make build

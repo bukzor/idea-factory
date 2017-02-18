@@ -20,7 +20,6 @@ ENV TERM=xterm-256color
 RUN     /usr/sbin/locale-gen en_US.UTF-8
 ENV     LANG en_US.UTF-8
 
-ADD image /
 RUN true \
     && groupadd --force -g $GID coder \
     && useradd \
@@ -34,5 +33,5 @@ RUN true \
 
 USER coder
 
-ENTRYPOINT ["sudo", "-iu", "coder"]
+ENTRYPOINT ["bash", "-lc", "exec \\"\$@\\"", "-bash"]
 EOF
