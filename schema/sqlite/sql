@@ -1,0 +1,26 @@
+-- PRINCIPLES
+  -- KISS:
+    -- no normalization of dup strings
+    -- everything is NOT NULL
+
+
+-- reference:
+    -- https://www.sqlite.org/lang_createtable.html 
+    -- https://www.sqlite.org/datatype3.html
+
+
+CREATE TABLE "idea" (
+    "idea-id" INTEGER PRIMARY KEY,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL
+    -- "mime-type" TEXT NOT NULL
+);
+
+CREATE TABLE "link" (
+    "link-id" INTEGER PRIMARY KEY,
+    "link-type" TEXT NOT NULL,
+    "from-idea" INTEGER NOT NULL,
+    "to-idea" INTEGER NOT NULL,
+    FOREIGN KEY("from-idea") REFERENCES idea("idea-id"),
+    FOREIGN KEY("to-idea") REFERENCES idea("idea-id")
+);
