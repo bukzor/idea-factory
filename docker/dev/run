@@ -4,4 +4,4 @@ source "$HERE"/../lib.sh
 
 "$HERE"/../builder/run
 docker-build "$HERE"
-docker-run "$IMAGE" "$@"
+docker-run -v /var/run/docker.sock:/var/run/docker.sock "$IMAGE" "$@"

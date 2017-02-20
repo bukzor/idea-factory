@@ -23,14 +23,11 @@ docker-build() {
 }
 
 docker-run() {
-    IMAGE="$1"
-    shift 1
     docker run -it \
         -e SSH_AUTH_SOCK \
         -v "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK" \
         -v "$HOME:/home/coder" \
         -v "$TOP:/opt/code" \
-        "$IMAGE" \
         "$@"
 }
 

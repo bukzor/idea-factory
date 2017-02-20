@@ -3,3 +3,4 @@ HERE="$(dirname "$(readlink -f "$0")")"
 source "$HERE"/../lib.sh
 
 docker-build "$HERE" "$@"
+docker-run "$IMAGE" "$@"

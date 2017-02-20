@@ -1,3 +1,15 @@
-Currently, with a warmed docker cache, you can run in 2.3 seconds:
+Docker Files
+============
+We want to use docker for the repeatability and portability it provides.
+In principle, we should be able to do local development, testing, and production using the *exact* same images.
 
-    ./docker/dev/run echo ok
+
+Principles
+----------
+    * only use &&-combining when it would reduce the layer size
+    * if two uses of the image require different packages, make them different images
+    * images put shared requirements in base images
+    * using the dev image should be as easy as using the local box
+    * speed: Currently, with a warmed docker cache, 'make dev' takes 2.3 seconds
+    * anything over one line should be a script that's ADD'ed
+    * use the 'ADD image /' pattern for adding files to the image

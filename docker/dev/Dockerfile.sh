@@ -4,16 +4,22 @@ cat <<EOF
 
 FROM dont.push.me/idea-factory/builder:$USER
 
-# the very basics
-RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends \
+# enable docker
+RUN docker-apt-install docker.io
+RUN sudo usermod -aG docker coder
+
+# smaller interactive tools
+RUN docker-apt-install \
     tmux \
     vim \
     man \
     less \
     git \
     ssh \
-&& true
+    tree \
+    python3-pip \
+    python3-setuptools
+RUN sudo pip3 install awscli
 
-WORKDIR /opt/code
 CMD ["tmux", "-2"]
 EOF

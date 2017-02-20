@@ -5,25 +5,21 @@ cat <<EOF
 FROM dont.push.me/idea-factory/base:$USER
 
 # the very basics
-RUN sudo apt-get update
-RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends \
-    wget \
+RUN docker-apt-install \
+    curl \
     ca-certificates \
     apt-transport-https \
-&& true
 
 # any non-default deb repositories:
-RUN wget -O- https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list && \
-    sudo apt-get update \
-&& true
+RUN curl https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN sudo apt-get update
 
-# the stuff we'll use directly
-RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install -y --no-install-recommends \
+# the build tools we'll use directly
+RUN docker-apt-install \
     make \
     nodejs \
-    yarn \
-&& true
+    yarn
 
 WORKDIR /opt/code
 EOF
