@@ -1,0 +1,12 @@
+#!/bin/sh
+# if we have squid-deb-proxy installed on our host machine
+# we can leverage it to make apt-get install MUCH faster
+# idea stolen from https://gist.github.com/dergachev/8441335
+set -eu
+
+gateway=$(docker-gateway)
+port=${SQUID_DEB_PROXY_PORT:-8000}
+
+if curl -sS --head $(docker-gateway):$port | grep -q '^Server: squid/'; then
+    echo http://$gateway:$port
+fi

@@ -9,7 +9,8 @@ FROM ubuntu:xenial
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    sudo
+    sudo \
+    curl
 
 # add a docker-apt-install command so 
 # we don't have to type that stuff over and over

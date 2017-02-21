@@ -1,0 +1,5 @@
+#!/bin/sh
+# the gateway for the default route is the docker host machine
+exec grep '^eth0	00000000	' /proc/net/route  |
+    cut -f3 |
+    hex2ip

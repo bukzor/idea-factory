@@ -1,0 +1,5 @@
+#!/bin/sh
+exec sed 's/../0x&\n/g' |       # split to 0xAA bytes
+    tac |                       # make it little-endian
+    xargs -rn1 printf %i\\n |   # convert to decimal
+    paste -sd '.' -             # join with dots
