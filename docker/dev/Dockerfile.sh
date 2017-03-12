@@ -21,5 +21,5 @@ RUN docker-apt-install \
 RUN sudo pip3 install --upgrade pip setuptools wheel
 RUN sudo pip3 install awscli
 
-CMD ["tmux"]
+CMD ["./docker/dev/tmux"]
 EOF

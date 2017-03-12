@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euxo pipefail
+
+tmux new -ds idea-factory
+tmux set -g status-style 'bg=colour17,fg=white'
+tmux attach
