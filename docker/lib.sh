@@ -25,6 +25,7 @@ docker-build() {
 docker-run() {
     docker run -P -it \
         -e SSH_AUTH_SOCK \
+        -e TERM \
         -v "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK" \
         -v "$HOME:/home/coder" \
         -v "$TOP:/opt/code" \
