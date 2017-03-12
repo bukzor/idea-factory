@@ -39,5 +39,5 @@ ENV LANG=en_US.UTF-8
 RUN sudo /usr/sbin/locale-gen en_US.UTF-8
 
 # ensure that all commands get a full login environment
-ENTRYPOINT ["bash", "-lc", "exec \\"\$@\\"", "-bash"]
+ENTRYPOINT ["login-env"]
 EOF
