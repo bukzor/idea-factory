@@ -31,6 +31,10 @@ RUN useradd \
         $USER
 USER $USER
 
+# allow to use sudo within tmux
+# see: <gist.github.com/ciastek/d496ac00ad68f5367db7>
+RUN sed -i s/nullok_secure/nullok/ /etc/pam.d/common-auth
+
 # hint 256-color support
 ENV TERM=xterm-256color
 
