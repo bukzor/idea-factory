@@ -16,20 +16,20 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 # we don't have to type that stuff over and over
 ADD image /
 
-# our default low-privilege user is named "coder"
-# coder has no password and can use sudo
-# also, coder has the same uid and gid as the host user
+# our default low-privilege user is named "$USER"
+# $USER has no password and can use sudo
+# also, $USER has the same uid and gid as the host user
 # this prevents problems with file permissions on the host system
-RUN groupadd --force -g $GID coder
+RUN groupadd --force -g $GID $USER
 RUN useradd \
         -u $UID \
         -g $GID \
-        -d /home/coder \
+        -d /home/$USER \
         -s /bin/bash \
         -p '' \
         -G sudo \
-        coder
-USER coder
+        $USER
+USER $USER
 
 # hint 256-color support
 ENV TERM=xterm-256color

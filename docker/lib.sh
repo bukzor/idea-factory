@@ -27,8 +27,9 @@ docker-run() {
         -e SSH_AUTH_SOCK \
         -e TERM \
         -v "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK" \
-        -v "$HOME:/home/coder" \
+        -v "$HOME:/home/$USER" \
         -v "$TOP:/opt/code" \
+        -h idea-factory.docker \
         "$@"
 }
 

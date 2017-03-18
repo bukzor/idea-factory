@@ -10,7 +10,7 @@ FROM dont.push.me/idea-factory/builder:$USER
 # enable docker
 RUN docker-apt-install docker.io
 RUN sudo groupmod -g $DOCKER_GID docker
-RUN sudo usermod -aG docker coder
+RUN sudo usermod -aG docker $USER
 
 # smaller interactive tools
 RUN docker-apt-install \
