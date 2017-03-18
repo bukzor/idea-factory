@@ -30,7 +30,7 @@ docker-run() {
         -v "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK" \
         -v "$HOME:/home/$USER" \
         -v "$TOP:/opt/code" \
-        -h idea-factory.docker \
+        -h "idea-factory/$NAME.docker" \
         "$@"
 }
 
