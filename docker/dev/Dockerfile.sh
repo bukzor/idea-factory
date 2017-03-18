@@ -21,9 +21,9 @@ RUN docker-apt-install \
     git \
     ssh \
     tree \
-    python3-pip
-RUN sudo pip3 install --upgrade pip setuptools wheel
-RUN sudo pip3 install awscli
+    python3.6
+RUN curl https://bootstrap.pypa.io/get-pip.py | sudo python3.6
+RUN sudo pip install awscli
 
 CMD ["./docker/dev/tmux"]
 EOF
