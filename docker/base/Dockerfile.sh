@@ -5,7 +5,7 @@ GID=$(id -u)
 cat <<EOF
 # our environment in which we build our files
 
-FROM ubuntu:xenial
+FROM ubuntu:yakkety
 
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
