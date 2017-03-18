@@ -30,6 +30,7 @@ RUN useradd \
         -G sudo \
         $USER
 USER $USER
+WORKDIR /opt/code
 
 # allow to use sudo within tmux
 # see: <gist.github.com/ciastek/d496ac00ad68f5367db7>

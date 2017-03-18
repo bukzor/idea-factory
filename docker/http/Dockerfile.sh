@@ -5,8 +5,9 @@ cat <<EOF
 FROM dont.push.me/idea-factory/base:$USER
 
 RUN docker-apt-install \
-    python3.5
+    python3.6 \
+    gunicorn3
 
 EXPOSE 8000
-CMD ["python3.5", "-m", "http.server", "8000"]
+CMD ["gunicorn3", "--workers=4", "--bind=0.0.0.0:8000", "myapp:app"]
 EOF

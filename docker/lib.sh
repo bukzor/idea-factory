@@ -5,7 +5,7 @@ set -euo pipefail
 set -x
 # constants
 THIS="$(readlink -f "${BASH_SOURCE[0]}")"
-TOP="$(dirname "$(dirname "$THIS")")"
+export TOP="${TOP:-"$(dirname "$(dirname "$THIS")")"}"
 
 
 docker-build() {
@@ -26,6 +26,7 @@ docker-run() {
     docker run -P -it \
         -e SSH_AUTH_SOCK \
         -e TERM \
+        -e TOP \
         -v "$SSH_AUTH_SOCK:$SSH_AUTH_SOCK" \
         -v "$HOME:/home/$USER" \
         -v "$TOP:/opt/code" \

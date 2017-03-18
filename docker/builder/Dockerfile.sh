@@ -20,6 +20,4 @@ RUN docker-apt-install \
     make \
     nodejs \
     yarn
-
-WORKDIR /opt/code
 EOF
