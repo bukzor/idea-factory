@@ -4,4 +4,10 @@ source "$HERE"/../lib.sh
 
 "$HERE"/../base/run
 docker-build "$HERE"
-docker-run -v /var/run/docker.sock:/var/run/docker.sock "$IMAGE" "$@"
+
+# this closely emulates our production docker-run arguments
+docker run \
+    -P \
+    --read-only \
+    "$IMAGE" \
+    "$@"

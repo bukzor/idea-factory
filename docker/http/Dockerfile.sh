@@ -9,5 +9,8 @@ RUN docker-apt-install \
     gunicorn3
 
 EXPOSE 8000
+
+VOLUME tmp /tmp
+ADD build /opt/code
 CMD ["gunicorn3", "--workers=4", "--bind=0.0.0.0:8000", "myapp:app"]
 EOF
