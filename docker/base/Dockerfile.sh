@@ -1,6 +1,7 @@
 #!/bin/sh
 UID=$(id -u)
 GID=$(id -u)
+TZ=$(cat /etc/timezone)
 
 cat <<EOF
 # our environment in which we build our files
@@ -42,6 +43,8 @@ ENV TERM=xterm-256color
 # set up appropriate locale
 ENV LANG=en_US.UTF-8
 RUN sudo /usr/sbin/locale-gen en_US.UTF-8
+RUN sudo ln -sf /usr/share/zoneinfo/$TZ /etc/localtime
+RUN sudo echo $TZ > /etc/timezone
 
 # ensure that all commands get a full login environment
 ENTRYPOINT ["login-env"]
